@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Manager</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <h1>Pet Manager</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Add a Pet</h2>
+      <form id="pet-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter pet name" required>
+        </div>
+        <button type="submit">Add Pet</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>All Pets (<span id="pet-count">0</span>)</h2>
+      <p id="error-message"></p>
+      <ul id="pets-list"></ul>
+    </section>
+
+    <section id="pet-details" class="hidden">
+      <h2>Pet Details</h2>
+      <p>ID: <span id="detail-id"></span></p>
+      <p>Name: <span id="detail-name"></span></p>
+
+      <h3>Update Name</h3>
+      <form id="update-form">
+        <div>
+          <label for="new-name">New Name</label>
+          <input type="text" id="new-name" name="newName" placeholder="Enter new name" required>
+        </div>
+        <button type="submit">Update</button>
+      </form>
+      <button id="delete-btn" class="delete-btn">Delete This Pet</button>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
