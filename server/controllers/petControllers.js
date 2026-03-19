@@ -52,9 +52,8 @@ module.exports.deletePet = (req, res) => {
     const pet = model.find(id)
     if(!pet)
       return res.status(404).send({ message: `No pet found with id: ${id}` });
-    if(model.destroy(id))
-      return res.status(204)
-    return res.status(500).send({message: "Something went wrong!"})
+    let _del =model.destroy(id)
+    return res.status(200).send(_del);
   // Parse the id from req.params
   // If the pet is not found, send a 404 response
   // Otherwise, send the deleted pet

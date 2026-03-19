@@ -13,7 +13,10 @@ pets = [
 
 // TODO: Create a new pet and add it to the array. Return the new pet.
 module.exports.create = (name) => {
-    (name&&(pets.push({id:getId(),name})))
+    let _new = {id:getId(),name}
+    pets.push(_new)
+    if (name) return _new
+    return null
 }
 
 // TODO: Return a copy of all pets.
@@ -42,6 +45,6 @@ return null
 module.exports.destroy = (id) => {
 const _x = pets.findIndex((pet)=>pet.id==id)
 if(_x+1)
-    return pets.splice(_x, 1)[0]
+    return pets.splice(_x, 1)
 return null
 }
