@@ -48,7 +48,7 @@ Build a working Express server with MVC architecture that powers the provided fr
 
 **Files you complete:**
 - `server/index.js` — Express app setup, middleware, and endpoint definitions
-- `server/models/Pet.js` — In-memory data model
+- `server/models/petModel.js` — In-memory data model
 - `server/controllers/petControllers.js` — Controller functions
 
 ### API Reference
@@ -77,7 +77,7 @@ In `server/index.js`:
 
 ### Step 2: Build the Model
 
-In `server/models/Pet.js`:
+In `server/models/petModel.js`:
 1. Create an in-memory array with 2-3 starter pets (each with an `id` and `name`). Use the `getId()` helper to assign each pet's `id`.
 2. Implement all 5 methods: `create`, `list`, `find`, `update`, `destroy`
 3. Model methods should NOT use `req` or `res` — they only manage data
