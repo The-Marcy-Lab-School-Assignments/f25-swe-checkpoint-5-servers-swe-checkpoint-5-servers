@@ -1,11 +1,17 @@
 const express = require('express');
+const controllers = require('./controllers/petControllers')
 const path = require('path');
+
+let pathToFrontend = path.join(__dirname, '../frontend');
+if (process.env.NODE_ENV === 'production') {
+  pathToFrontend = path.join(__dirname, '../frontend');
+}
+
 
 // TODO: Import your controllers from ./controllers/petControllers.js
 
 
 const app = express();
-
 /////////////////////
 // Middleware
 /////////////////////
@@ -17,14 +23,34 @@ const app = express();
 // TODO: Add the express.json() middleware to parse JSON request bodies.
 
 
-// TODO: Serve the frontend/ folder as static assets using express.static()
 
+// Route Logger
+const logRoutes = (req, res, next) => {
+  const time = new Date().toLocaleString();
+  console.log(`${req.method}: ${req.originalUrl} - ${time}`);
+  next(); // Passes the request to the next middleware/controller
+};
 
-/////////////////////
-// Endpoints
-/////////////////////
+//404 fallback
+const _404 = (req,res,next) =>{
+    res.send(`ERR: no resource found at path: '${req.path}'`)
+    return
+}
+// static resource serving
+const serveStatic = express.static(pathToFrontend);
 
-// TODO: Define RESTful endpoints for managing pets.
+//controller registry
+app.use(logRoutes);
+app.use(express.json())
+app.use(serveStatic);
+
+app.get('/api/pets',controllers.listPets)
+app.get('/api/pets/:id',controllers.getPet)
+app.post('/api/pets',controllers.createPet)
+app.patch('/api/pets/:id',controllers.updatePet)
+app.delete('/api/pets/:id',controllers.deletePet)
+
+app.use(_404);
 
 
 const port = 8080;
