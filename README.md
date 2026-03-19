@@ -138,37 +138,37 @@ curl http://localhost:8080/api/pets -i
 ## Complete Code Grading Checklist (28 points)
 
 **Express Setup (6 pts)**
-- [ ] Express app is created and listens on a port
-- [ ] `express.json()` middleware is registered
-- [ ] `express.static()` serves the `frontend/` folder
-- [ ] A custom `logRoutes` middleware logs method and URL for every request
-- [ ] Middleware is registered before routes
-- [ ] Server starts without errors
+- [x] Express app is created and listens on a port
+- [x] `express.json()` middleware is registered
+- [x] `express.static()` serves the `frontend/` folder
+- [x] A custom `logRoutes` middleware logs method and URL for every request
+- [x] Middleware is registered before routes
+- [x] Server starts without errors
 
 **Model (8 pts)**
-- [ ] In-memory array is private to the module (not exported directly)
-- [ ] `create()` returns a new pet with a unique `id`
-- [ ] `list()` returns a copy of all pets
-- [ ] `find()` returns a single pet by ID or `undefined`
-- [ ] `update()` modifies and returns the pet, or returns `null` if not found
-- [ ] `delete()` removes and returns the pet, or returns `null` if not found
-- [ ] IDs are unique and auto-incrementing
-- [ ] Model methods do not use `req` or `res` (proper separation of concerns)
+- [x] In-memory array is private to the module (not exported directly)
+- [x] `create()` returns a new pet with a unique `id`
+- [x] `list()` returns a copy of all pets
+- [x] `find()` returns a single pet by ID or `undefined`
+- [x] `update()` modifies and returns the pet, or returns `null` if not found
+- [x] `delete()` removes and returns the pet, or returns `null` if not found
+- [x] IDs are unique and auto-incrementing
+- [x] Model methods do not use `req` or `res` (proper separation of concerns)
 
 **Controllers (10 pts)**
-- [ ] Controllers import and use the model (no direct array manipulation)
-- [ ] `createPet` reads from `req.body`, returns `201` status with the new pet
-- [ ] `listPets` sends the full list of pets
-- [ ] `getPet` parses `req.params.id`, returns `404` with message if not found
-- [ ] `updatePet` parses params and body, returns `404` if not found
-- [ ] `deletePet` parses `req.params.id`, returns `404` if not found
-- [ ] All controllers send appropriate status codes
-- [ ] Request body validation (returns `400` if `name` is missing for create/update)
-- [ ] Controllers are exported and imported properly
-- [ ] No model logic lives in controllers (separation of concerns)
+- [x] Controllers import and use the model (no direct array manipulation)
+- [x] `createPet` reads from `req.body`, returns `201` status with the new pet
+- [x] `listPets` sends the full list of pets
+- [x] `getPet` parses `req.params.id`, returns `404` with message if not found
+- [x] `updatePet` parses params and body, returns `404` if not found
+- [x] `deletePet` parses `req.params.id`, returns `404` if not found
+- [x] All controllers send appropriate status codes
+- [x] Request body validation (returns `400` if `name` is missing for create/update)
+- [x] Controllers are exported and imported properly
+- [x] No model logic lives in controllers (separation of concerns)
 
 **REST Endpoints (4 pts)**
-- [ ] Routes follow REST conventions (correct methods + URL patterns)
-- [ ] Path parameters are used for single-resource endpoints (`:id`)
-- [ ] All 5 CRUD routes are defined
-- [ ] Routes are defined after middleware registration
+- [x] Routes follow REST conventions (correct methods + URL patterns)
+- [x] Path parameters are used for single-resource endpoints (`:id`)
+- [x] All 5 CRUD routes are defined
+- [x] Routes are defined after middleware registration
